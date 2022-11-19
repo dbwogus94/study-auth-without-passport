@@ -1,9 +1,13 @@
-import { Body, ConflictException, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { API_DOC_TYPE } from './constant';
 import { DocumentHelper } from './decorator';
-import { AccessTokenResponseDTO, SignupRequestDTO } from './dto';
+import {
+  AccessTokenResponseDTO,
+  LoginRequestDTO,
+  SignupRequestDTO,
+} from './dto';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -15,12 +19,12 @@ export class AuthController {
   async signup(
     @Body() newUser: SignupRequestDTO,
   ): Promise<AccessTokenResponseDTO> {
-    const foundUser = this.authService.findUser(newUser.username);
-    if (foundUser) {
-      throw new ConflictException(
-        `User with username ${newUser.username} already exists`,
-      );
-    }
     return this.authService.signup(newUser);
+  }
+
+  @DocumentHelper(API_DOC_TYPE.LOGIN)
+  @Post('login')
+  async login(@Body() login: LoginRequestDTO) {
+    return this.authService.login(login);
   }
 }

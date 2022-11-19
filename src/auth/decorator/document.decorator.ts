@@ -4,6 +4,7 @@ import {
   ApiConflictResponse,
   ApiCreatedResponse,
   ApiOperation,
+  ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 import { API_DOC_TYPE } from '../constant';
 import { AccessTokenResponseDTO } from '../dto';
@@ -22,6 +23,20 @@ const decorators: Record<API_DOC_TYPE, Function> = {
       }),
       ApiConflictResponse({
         description: 'User with username ${username} already exists',
+      }),
+      ApiCreatedResponse({
+        description: 'Success Signup',
+        type: AccessTokenResponseDTO,
+      }),
+    ),
+  login: () =>
+    applyDecorators(
+      ApiOperation({ summary: 'Auth API - Login' }),
+      ApiBadRequestResponse({
+        description: 'Invalid Request Body',
+      }),
+      ApiUnauthorizedResponse({
+        description: 'Username or password may be incorrect. Please try again',
       }),
       ApiCreatedResponse({
         description: 'Success Signup',
