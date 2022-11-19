@@ -8,6 +8,7 @@ import {
   LoginRequestDTO,
   SignupRequestDTO,
 } from './dto';
+import { SignupPipe } from './pipe';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -17,7 +18,7 @@ export class AuthController {
   @DocumentHelper(API_DOC_TYPE.SIGNUP)
   @Post('signup')
   async signup(
-    @Body() newUser: SignupRequestDTO,
+    @Body(SignupPipe) newUser: SignupRequestDTO,
   ): Promise<AccessTokenResponseDTO> {
     return this.authService.signup(newUser);
   }
