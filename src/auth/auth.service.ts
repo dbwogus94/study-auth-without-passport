@@ -10,13 +10,7 @@ import {
   LoginRequestDTO,
   SignupRequestDTO,
 } from './dto';
-
-interface User {
-  username: string;
-  password: string;
-  firstName: string;
-  lastName: string;
-}
+import { JwtPayload, User } from './interface';
 
 @Injectable()
 export class AuthService {
@@ -61,7 +55,8 @@ export class AuthService {
   }
 
   private createAccessToken(username: string): AccessTokenResponseDTO {
-    return { accessToken: this.jwtService.sign({ sub: username }) };
+    const jwtPayload: JwtPayload = { sub: username };
+    return { accessToken: this.jwtService.sign(jwtPayload) };
   }
 
   private async createUser(newUser: SignupRequestDTO): Promise<User> {

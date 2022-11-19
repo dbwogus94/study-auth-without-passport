@@ -8,6 +8,17 @@ async function bootstrap() {
   const swaggerConfig = new DocumentBuilder()
     .setTitle('Auth Test API')
     .setVersion('1.0.0')
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        name: 'Access JWT',
+        description: 'Enter Access Token',
+        in: 'header',
+      },
+      'access_token',
+    )
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('/docs', app, document);

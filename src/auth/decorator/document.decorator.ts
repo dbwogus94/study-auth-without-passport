@@ -3,6 +3,7 @@ import {
   ApiBadRequestResponse,
   ApiConflictResponse,
   ApiCreatedResponse,
+  ApiNoContentResponse,
   ApiOperation,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
@@ -39,8 +40,18 @@ const decorators: Record<API_DOC_TYPE, Function> = {
         description: 'Username or password may be incorrect. Please try again',
       }),
       ApiCreatedResponse({
-        description: 'Success Signup',
+        description: 'Success login',
         type: AccessTokenResponseDTO,
+      }),
+    ),
+  me: () =>
+    applyDecorators(
+      ApiOperation({ summary: 'Auth API - Me' }),
+      ApiUnauthorizedResponse({
+        description: 'Invalid Access Token',
+      }),
+      ApiNoContentResponse({
+        description: 'Success me',
       }),
     ),
 };
