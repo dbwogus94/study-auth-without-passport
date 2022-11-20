@@ -1,11 +1,12 @@
 {
-  "name": "auth-without-passport",
+  "name": "study-nestjs",
   "version": "0.0.1",
   "description": "",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "ci": "pnpm i --frozen-lockfile",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
