@@ -1,7 +1,7 @@
+import { ACCESS_TOKEN_TAG } from '@lib/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import { ACCESS_TOKEN_TAG } from './common/constant/auth.constant';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

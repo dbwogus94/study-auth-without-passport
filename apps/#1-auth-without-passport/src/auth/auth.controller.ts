@@ -1,3 +1,4 @@
+import { ApiAuthDocument } from '@lib/common';
 import {
   Body,
   Controller,
@@ -7,7 +8,6 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { ApiAuthDocument } from 'src/common';
 import { AuthService } from './auth.service';
 import { API_DOC_TYPE } from './constant';
 import { DocumentHelper } from './decorator';
