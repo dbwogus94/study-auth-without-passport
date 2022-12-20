@@ -85,9 +85,9 @@
     ],
     "moduleNameMapper": {
       "^@lib/common(|/.*)$": "<rootDir>/libs/common/src/$1",
+      "^@lib/config(|/.*)$": "<rootDir>/libs/config/src/$1",
       "^@app/1-auth-without-passport(|/.*)$": "<rootDir>/apps/1-auth-without-passport/src/$1",
-      "^@app/2-auth-without-passport-ver2(|/.*)$": "<rootDir>/apps/2-auth-without-passport-ver2/src/$1",
-      "^lib/config(|/.*)$": "<rootDir>/libs/config/src/$1"
+      "^@app/2-auth-without-passport-ver2(|/.*)$": "<rootDir>/apps/2-auth-without-passport-ver2/src/$1"
     }
   }
 }

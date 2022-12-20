@@ -24,6 +24,12 @@
       "@lib/common/*": [
         "libs/common/src/*"
       ],
+      "@lib/config": [
+        "libs/config/src"
+      ],
+      "@lib/config/*": [
+        "libs/config/src/*"
+      ],
       "@app/1-auth-without-passport": [
         "apps/1-auth-without-passport/src"
       ],
