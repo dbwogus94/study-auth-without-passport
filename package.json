@@ -15,6 +15,11 @@
     "start:1:debug": "nest start 1-auth-without-passport --debug --watch",
     "start:1:prod": "node dist/apps/1-auth-without-passport/main",
     "start:1:build": "nest build 1-auth-without-passport",
+    "start:2": "nest start 2-auth-without-passport-ver2",
+    "start:2:dev": "nest start 2-auth-without-passport-ver2 --watch",
+    "start:2:debug": "nest start 2-auth-without-passport-ver2 --debug --watch",
+    "start:2:prod": "node dist/apps/2-auth-without-passport-ver2/main",
+    "start:2:build": "nest build 2-auth-without-passport-ver2",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -78,7 +83,8 @@
     ],
     "moduleNameMapper": {
       "^@lib/common(|/.*)$": "<rootDir>/libs/common/src/$1",
-      "^@app/1-auth-without-passport(|/.*)$": "<rootDir>/apps/1-auth-without-passport/src/$1"
+      "^@app/1-auth-without-passport(|/.*)$": "<rootDir>/apps/1-auth-without-passport/src/$1",
+      "^@app/2-auth-without-passport-ver2(|/.*)$": "<rootDir>/apps/2-auth-without-passport-ver2/src/$1"
     }
   }
 }

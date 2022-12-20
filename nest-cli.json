@@ -9,6 +9,15 @@
     "tsConfigPath": "apps/1-auth-without-passport/tsconfig.app.json"
   },
   "projects": {
+    "common": {
+      "type": "library",
+      "root": "libs/common",
+      "entryFile": "index",
+      "sourceRoot": "libs/common/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/common/tsconfig.lib.json"
+      }
+    },
     "1-auth-without-passport": {
       "type": "application",
       "root": "apps/1-auth-without-passport",
@@ -18,13 +27,13 @@
         "tsConfigPath": "apps/1-auth-without-passport/tsconfig.app.json"
       }
     },
-    "common": {
-      "type": "library",
-      "root": "libs/common",
-      "entryFile": "index",
-      "sourceRoot": "libs/common/src",
+    "2-auth-without-passport-ver2": {
+      "type": "application",
+      "root": "apps/2-auth-without-passport-ver2",
+      "entryFile": "main",
+      "sourceRoot": "apps/2-auth-without-passport-ver2/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/common/tsconfig.lib.json"
+        "tsConfigPath": "apps/2-auth-without-passport-ver2/tsconfig.app.json"
       }
     }
   }

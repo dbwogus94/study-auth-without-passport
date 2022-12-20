@@ -30,6 +30,12 @@
       "@app/1-auth-without-passport/*": [
         "apps/1-auth-without-passport/src/*"
       ],
+      "@app/2-auth-without-passport-ver2": [
+        "apps/2-auth-without-passport-ver2/src"
+      ],
+      "@app/2-auth-without-passport-ver2/*": [
+        "apps/2-auth-without-passport-ver2/src/*"
+      ]
     }
   }
 }
