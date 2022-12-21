@@ -1,4 +1,4 @@
-import { ApiAuthDocument } from '@lib/common';
+import { ACCESS_TOKEN_TAG, ApiAuthDocument } from '@lib/common';
 import {
   Body,
   Controller,
@@ -40,7 +40,7 @@ export class AuthController {
     return this.authService.login(login);
   }
 
-  @ApiAuthDocument()
+  @ApiAuthDocument(ACCESS_TOKEN_TAG)
   @DocumentHelper(API_DOC_TYPE.ME)
   @UseGuards(JwtGuard)
   @Get('me')
