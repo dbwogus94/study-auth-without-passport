@@ -5,6 +5,7 @@ import {
   ApiOperation,
 } from '@nestjs/swagger';
 import { API_DOC_TYPE } from '../constant/document.constant';
+import { SingupRequestDto } from '../dto/request/signup-request.dto';
 
 export const DocumentHelper = (docType: API_DOC_TYPE) => {
   return decorators[docType]();

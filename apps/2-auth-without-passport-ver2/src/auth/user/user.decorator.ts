@@ -1,5 +1,5 @@
 import { applyDecorators } from '@nestjs/common';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Expose } from 'class-transformer';
 import { IsNotEmpty, IsOptional } from 'class-validator';
 import { User } from './user.entity';
@@ -33,7 +33,8 @@ const docsdecorators: DecoratorType = {
   id: () => applyDecorators(ApiProperty({ description: 'User PK' })),
   username: () => applyDecorators(ApiProperty({ description: 'User ID' })),
   password: () => applyDecorators(ApiProperty({ description: 'User PW' })),
-  email: () => applyDecorators(ApiProperty({ description: 'User Email' })),
+  email: () =>
+    applyDecorators(ApiPropertyOptional({ description: 'User Email' })),
   createdAt: () => applyDecorators(ApiProperty({ description: 'User 생성일' })),
   updatedAt: () => applyDecorators(ApiProperty({ description: 'User 수정일' })),
 };
@@ -41,7 +42,7 @@ const docsdecorators: DecoratorType = {
 const validDecorators: DecoratorType = {
   id: () => applyDecorators(Expose(), IsOptional()),
   username: () => applyDecorators(Expose(), IsNotEmpty()),
-  password: () => applyDecorators(Expose(), IsNotEmpty()),
+  password: () => applyDecorators(Expose(), IsNotEmpty()), // TODO: 내부 데코레이터도 공통화 필요
   email: () => applyDecorators(Expose(), IsOptional()),
   createdAt: () => applyDecorators(Expose(), IsOptional()),
   updatedAt: () => applyDecorators(Expose(), IsOptional()),

@@ -1,8 +1,9 @@
 import { ApiControllerDocument } from '@lib/common';
-import { Controller, Get, HttpCode, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { API_DOC_TYPE } from './constant/document.constant';
 import { DocumentHelper } from './decorator/document.decorator';
+import { SingupRequestDto } from './dto/request/signup-request.dto';
 
 @ApiControllerDocument('auth')
 @Controller('/auth')
@@ -12,7 +13,7 @@ export class AuthController {
   @DocumentHelper(API_DOC_TYPE.SIGNUP)
   @HttpCode(201)
   @Post('/singup')
-  signup() {
+  signup(@Body() user: SingupRequestDto) {
     return this.authService.signup();
   }
 
