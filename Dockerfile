@@ -4,7 +4,7 @@ ENV NODE_ENV local
 
 WORKDIR /app
 COPY ./package.json /app
-COPY ./package-lock.json /app
+COPY ./pnpm-lock.yaml /app
 
 RUN npm i -g pnpm@7.16.1
 RUN npm i -g @nestjs/cli
